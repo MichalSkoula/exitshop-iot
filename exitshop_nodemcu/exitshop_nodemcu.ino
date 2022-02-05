@@ -128,8 +128,9 @@ void loop () {
   display.display(); 
 
   if (newOrders > 0) {
-    for (int i; i < newOrders; i++) {
-      buzz(2000);
+    for (int i = 0; i < newOrders; i++) {
+      buzz(1500);
+      delay(500);
     }
   }
   
