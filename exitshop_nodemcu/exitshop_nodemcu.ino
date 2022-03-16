@@ -82,8 +82,8 @@ void loop () {
   if (WiFi.status()== WL_CONNECTED){
     // Get data
     sensorReadings = httpGETRequest(serverPath + elapsedTimeSeconds);
-    //Serial.println(serverPath + elapsedTimeSeconds);
-    //Serial.println(sensorReadings);
+    Serial.println(serverPath + elapsedTimeSeconds);
+    Serial.println(sensorReadings);
     JSONVar myObject = JSON.parse(sensorReadings);
   
     // JSON.typeof(jsonVar) can be used to get the type of the var
