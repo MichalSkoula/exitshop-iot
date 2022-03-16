@@ -16,7 +16,7 @@ int checkSeconds = 60; // kontrola každých X sekund (minimálně 60s)
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-String serverPath = "https://www.exitshop.cz/sklad/jsonStats2/" + secretKey + "/";
+String serverPath = "https://www.exitshop.cz/sklad/jsonStats2/" + secretKey + "/30/";
 String sensorReadings; // result
 int updateInterval;
 unsigned long lastSuccessfullGet;
@@ -82,6 +82,7 @@ void loop () {
   if (WiFi.status()== WL_CONNECTED){
     // Get data
     sensorReadings = httpGETRequest(serverPath + elapsedTimeSeconds);
+    //Serial.println(serverPath + elapsedTimeSeconds);
     //Serial.println(sensorReadings);
     JSONVar myObject = JSON.parse(sensorReadings);
   
@@ -127,6 +128,7 @@ void loop () {
 
   display.display(); 
 
+  //Serial.println(newOrders);
   if (newOrders > 0) {
     for (int i = 0; i < newOrders; i++) {
       buzz(1500);
@@ -138,7 +140,7 @@ void loop () {
 }
 
 String httpGETRequest(String path) {   
-  Serial.println(path);
+  // Serial.println(path);
   // Your IP address with path or Domain name with URL path 
   http.begin(client, path);
   
