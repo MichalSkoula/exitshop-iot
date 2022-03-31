@@ -1,9 +1,8 @@
 // ZAČÁTEK Nastavení -----------------------------------------------
 
-const char* ssid = "***";    // název WIFI sítě (nepodporuje 5Ghz wifi)
-const char* password = "***";  // heslo
-String secretKey = "***"; // tajný klíč
-int checkSeconds = 60; // kontrola každých X sekund (minimálně 60s)
+const char* ssid = "SSID_PLACEHOLDER";    // název WIFI sítě (nepodporuje 5Ghz wifi)
+const char* password = "PASSWORD_PLACEHOLDER";  // heslo
+String secretKey = "SECRET_PLACEHOLDER"; // tajný klíč
 
 // KONEC Nastavení -------------------------------------------------
 
@@ -24,6 +23,7 @@ unsigned long elapsedTime;
 // PINS ON NODEMCU - https://www.electronicwings.com/nodemcu/nodemcu-gpio-with-arduino-ide
 const unsigned int buzzer = 14; // 14 = pin 5 
 const unsigned led = 13; // 5 = pin 1, 0 = pin 3
+const unsigned check = 60;
 
 WiFiClientSecure client;
 HTTPClient http;
@@ -63,10 +63,7 @@ void setup () {
   display.setTextSize(1);
 
   // you will get autobanned if you try to override this
-  if (checkSeconds < 60) {
-    checkSeconds = 60;
-  }
-  updateInterval = checkSeconds * 1000;
+  updateInterval = check * 1000;
 }
 
 void loop () {
