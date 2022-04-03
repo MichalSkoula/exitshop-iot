@@ -10,3 +10,5 @@ exitshop-iot-uploader/ARCO1500_Uploader.csproj.user
 arduino-bin
 
 exitshop-iot-code-modified.ino
+exitshop-iot-code-modified/pitches.h
+exitshop-iot-code-modified/songs.ino

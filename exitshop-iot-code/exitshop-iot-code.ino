@@ -3,9 +3,9 @@
 const char* ssid = "SSID_PLACEHOLDER";    // název WIFI sítě (nepodporuje 5Ghz wifi)
 const char* password = "PASSWORD_PLACEHOLDER";  // heslo
 String secretKey = "SECRET_PLACEHOLDER"; // tajný klíč
+const int melody = MELODY_PLACEHOLDER;
 
 // KONEC Nastavení -------------------------------------------------
-
 
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
@@ -14,6 +14,7 @@ String secretKey = "SECRET_PLACEHOLDER"; // tajný klíč
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "pitches.h"
 
 String serverPath = "https://www.exitshop.cz/sklad/jsonStats2/" + secretKey + "/30/";
 String sensorReadings; // result
@@ -32,6 +33,7 @@ HTTPClient http;
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
 
 void setup () {
   pinMode(buzzer,OUTPUT) ;
@@ -128,7 +130,20 @@ void loop () {
   //Serial.println(newOrders);
   if (newOrders > 0) {
     for (int i = 0; i < newOrders; i++) {
-      buzz(1500);
+      digitalWrite(led, HIGH); // turn the LED on.
+
+      switch (melody) {
+        case 0: delay(1500); break;
+        case 1: buzz(1500); break;
+        case 2: playSuperMarioMelody(); break;
+        case 3: playTakeOnMeMelody(); break;
+        case 4: playStarWarsMelody(); break;
+        case 5: playLionMelody(); break;
+        case 6: playDoomMelody(); break;
+        default: break;
+      }
+
+      digitalWrite(led, LOW); // turn the LED off.
       delay(500);
     }
   }
