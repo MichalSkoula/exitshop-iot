@@ -1,14 +1,16 @@
-# visual studio - gameuploader
+# visual studio uploader
 exitshop-iot-uploader/.vs
 exitshop-iot-uploader/bin
 exitshop-iot-uploader/obj
 exitshop-iot-uploader/obj/*
 exitshop-iot-uploader/v15/*
 exitshop-iot-uploader/ARCO1500_Uploader.csproj.user
+FolderProfile.pubxml.user
 
 # arduino ide
 arduino-bin
 
+# modified code
 exitshop-iot-code-modified.ino
 exitshop-iot-code-modified/pitches.h
 exitshop-iot-code-modified/songs.ino
