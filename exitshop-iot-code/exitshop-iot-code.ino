@@ -39,6 +39,10 @@ void setup () {
   pinMode(buzzer,OUTPUT) ;
   pinMode(led, OUTPUT); // set the digital pin as output.
 
+  digitalWrite(led, HIGH); // turn the LED on.
+  playMelody(); // intro
+  digitalWrite(led, LOW); // turn the LED off.
+
   Serial.begin(9600);
   delay(1000);
 
@@ -66,8 +70,6 @@ void setup () {
 
   // you will get autobanned if you try to override this
   updateInterval = check * 1000;
-
-  playMelody(); // intro
 }
 
 void loop () {

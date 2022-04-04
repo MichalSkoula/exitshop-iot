@@ -66,29 +66,39 @@ void playTakeOnMeMelody() {
 }
 
 // star wars -----------------------------------------------------------------------------------
-// https://github.com/robsoncouto/arduino-songs/blob/master/starwars/starwars.ino
-int notes_starwars[] = {
-  NOTE_AS4, NOTE_AS4, NOTE_AS4,//1
-  NOTE_F5, NOTE_C6,
-  NOTE_AS5, NOTE_A5, NOTE_G5, NOTE_F6, NOTE_C6,  
-  NOTE_AS5, NOTE_A5, NOTE_G5, NOTE_F6, NOTE_C6,  
-  NOTE_AS5, NOTE_A5, NOTE_AS5, NOTE_G5
+// https://github.com/robsoncouto/arduino-songs/blob/master/imperialmarch/imperialmarch.ino
+int melody_starwars[] = {
+  NOTE_A4,4, NOTE_A4,4, NOTE_A4,4, NOTE_F4,-8, NOTE_C5,16,
+  NOTE_A4,4, NOTE_F4,-8, NOTE_C5,16, NOTE_A4,2,//4
+  NOTE_E5,4, NOTE_E5,4, NOTE_E5,4, NOTE_F5,-8, NOTE_C5,16,
+  NOTE_A4,4, NOTE_F4,-8, NOTE_C5,16, NOTE_A4,2,
 };
-int duration_starwars[] = {
-  8,8,8,
-  2,2,
-  8,8,8,2,4,
-  8,8,8,2,4,
-  8,8,8,2
-};
-int length_starwars = (sizeof(notes_starwars)/sizeof(int));
+int length_starwars = sizeof(melody_starwars) / sizeof(melody_starwars[0]) / 2;
 void playStarWarsMelody() {
-  for (int thisNote = 0; thisNote < length_starwars; thisNote++) {
-    int noteDuration = 1000/duration_starwars[thisNote];
-    tone(buzzer, notes_starwars[thisNote], noteDuration);
-    
-    int pauseBetweenNotes = noteDuration * 1.30;
-    delay(pauseBetweenNotes);
+  int tempo = 120;
+  int wholenote = (60000 * 4) / tempo;
+  int divider = 0, noteDuration = 0;
+
+  for (int thisNote = 0; thisNote < length_starwars * 2; thisNote = thisNote + 2) {
+
+    // calculates the duration of each note
+    divider = melody_starwars[thisNote + 1];
+    if (divider > 0) {
+      // regular note, just proceed
+      noteDuration = (wholenote) / divider;
+    } else if (divider < 0) {
+      // dotted notes are represented with negative durations!!
+      noteDuration = (wholenote) / abs(divider);
+      noteDuration *= 1.5; // increases the duration in half for dotted notes
+    }
+
+    // we only play the note for 90% of the duration, leaving 10% as a pause
+    tone(buzzer, melody_starwars[thisNote], noteDuration * 0.9);
+
+    // Wait for the specief duration before playing the next note.
+    delay(noteDuration);
+
+    // stop the waveform generation before the next note.
     noTone(buzzer);
   }
 }
