@@ -57,7 +57,7 @@ void setup () {
   // the magic line, use with caution
   client.setInsecure(); 
 
-  if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) { // Address 0x3D for 128x64
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) { // Address 0x3D for 128x64
     Serial.println(F("SSD1306 allocation failed"));
     for(;;);
   }
@@ -66,6 +66,8 @@ void setup () {
 
   // you will get autobanned if you try to override this
   updateInterval = check * 1000;
+
+  playMelody(); // intro
 }
 
 void loop () {
@@ -131,18 +133,7 @@ void loop () {
   if (newOrders > 0) {
     for (int i = 0; i < newOrders; i++) {
       digitalWrite(led, HIGH); // turn the LED on.
-
-      switch (melody) {
-        case 0: delay(1500); break;
-        case 1: buzz(1500); break;
-        case 2: playSuperMarioMelody(); break;
-        case 3: playTakeOnMeMelody(); break;
-        case 4: playStarWarsMelody(); break;
-        case 5: playLionMelody(); break;
-        case 6: playDoomMelody(); break;
-        default: break;
-      }
-
+      playMelody();
       digitalWrite(led, LOW); // turn the LED off.
       delay(500);
     }
@@ -183,4 +174,17 @@ void buzz(int length) {
 
   digitalWrite(led, LOW); // turn the LED off.
   noTone(buzzer) ; //Turn off the pin attached to the tone()
+}
+
+void playMelody() {
+  switch (melody) {
+    case 0: delay(1500); break;
+    case 1: buzz(1500); break;
+    case 2: playSuperMarioMelody(); break;
+    case 3: playTakeOnMeMelody(); break;
+    case 4: playStarWarsMelody(); break;
+    case 5: playLionMelody(); break;
+    case 6: playDoomMelody(); break;
+    default: break;
+  }
 }
