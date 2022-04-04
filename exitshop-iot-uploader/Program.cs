@@ -30,9 +30,10 @@ namespace exitshop_iot_uploader
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine("Dobrý den, přátelé ExitShopáci. Tento program vás provede nastavením vaší ExitShop IOT krabičky.");
-            Console.WriteLine("\nPokud jste tak ještě neučinili, nainstalujte si prosím USB ovladač z přiloženého souboru usb_driver.exe");
-            Console.WriteLine("Poté připojte vaší IOT krabičku k počítači pomocí micro USB kabelu.");
-            Console.WriteLine("\nPokračujte stisknutím ENTER");
+            Console.WriteLine("Program si bude nastavení pamatovat a příště vám nabídne výchozí hodnoty.");
+            Console.WriteLine("");
+            Console.WriteLine("Pokud jste tak ještě neučinili, nainstalujte si prosím USB ovladač z přiloženého souboru usb_driver.exe");
+            Console.WriteLine("Poté připojte vaší IOT krabičku k počítači pomocí micro USB kabelu. Pokračujte stisknutím ENTER");
             Console.ReadLine();
 
             // COM ports

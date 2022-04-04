@@ -51,7 +51,7 @@ void setup () {
     Serial.print(".");
   }
   Serial.println("");
-  Serial.println("WiFi connected at:");
+  Serial.print("WiFi connected at: ");
   Serial.println(WiFi.localIP());
 
   // the magic line, use with caution
@@ -75,6 +75,7 @@ void loop () {
   int elapsedTimeSeconds = ((int)((float)elapsedTime / 1000) + 1);
   
   int newOrders = 0;
+  int ordersToday = 0;
   String lastUpdate = "";
   String lastOrder = "";
   bool serverOk = true;
@@ -90,7 +91,7 @@ void loop () {
     // JSON.typeof(jsonVar) can be used to get the type of the var
     if (JSON.typeof(myObject) != "undefined") {
       //Serial.print("JSON object = ");
-      //Serial.println(myObject);
+      //Serial.println(myObject["today"]["orders"]);
   
       if (myObject.hasOwnProperty("new_orders")) {
         lastSuccessfullGet = millis();
@@ -104,6 +105,10 @@ void loop () {
       if (myObject.hasOwnProperty("last_order")) {
         lastOrder = (const char*)myObject["last_order"];
       }
+
+      if (myObject.hasOwnProperty("today")) {
+        ordersToday = (int)(myObject["today"]["orders"]);
+      }
     } else {
       Serial.println("Parsing input failed!");
       serverOk = false;
@@ -116,15 +121,18 @@ void loop () {
   display.clearDisplay();
 
   display.setCursor(0, 0);
-  display.println("Objednavka: " + lastOrder);
+  display.println("Objednavka:  " + lastOrder);
   
-  display.setCursor(0, 15);
+  display.setCursor(0, 13);
   display.println("Aktualizace: " + lastUpdate);
 
-  display.setCursor(0, 30);
+  display.setCursor(0, 26);
+  display.println("Objednavek dnes: " + (String)ordersToday);
+
+  display.setCursor(0, 39);
   display.println(WiFi.status()== WL_CONNECTED ? "Wifi: OK" : "Wifi: ERROR!!!");
 
-  display.setCursor(0, 45);
+  display.setCursor(0, 52);
   display.println(serverOk ? "Server: OK" : "Server: ERROR!!!");
 
   display.display(); 
