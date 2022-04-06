@@ -14,17 +14,16 @@ ExitShop Internet of Things - krabička, která vás upozorní na novou objedná
 
 ## Prototypy
 
-Prototyp #4 "Tereza", zde bez zesilovače 
 
-![obrazek](https://user-images.githubusercontent.com/5922575/162078370-94fc8184-c527-4e2f-a2d9-e6f351644f5c.png)
-
-Prototyp #3 "Milan" se zesilovačem
+Prototyp #3 "Milan" se zesilovačem, zde použito NodeMCU v2, které je menší
 
 ![obrazek](https://user-images.githubusercontent.com/5922575/161611237-dce3ebb6-aeca-4ee6-85d4-abc36649dac7.png)
 
-Prototyp #2 "Radek" v krabičce
+Prototyp #2 "Radek" v krabičce včetně i bez zesilovače
 
 ![277007822_10217682465007998_7174850170749182197_n](https://user-images.githubusercontent.com/5922575/161612031-4c05ad36-d206-4aa2-811e-ee4666cbebf4.jpg)
+
+![Clipboard01](https://user-images.githubusercontent.com/5922575/162078604-9afa6520-541e-4949-8a73-3a0f8567300d.jpg)
 
 Prototyp #1 "Michal" na breadboardu
 
