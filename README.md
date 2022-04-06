@@ -14,6 +14,10 @@ ExitShop Internet of Things - krabička, která vás upozorní na novou objedná
 
 ## Prototypy
 
+Prototyp #4 "Tereza", zde bez zesilovače 
+
+![obrazek](https://user-images.githubusercontent.com/5922575/162078370-94fc8184-c527-4e2f-a2d9-e6f351644f5c.png)
+
 Prototyp #3 "Milan" se zesilovačem
 
 ![obrazek](https://user-images.githubusercontent.com/5922575/161611237-dce3ebb6-aeca-4ee6-85d4-abc36649dac7.png)
