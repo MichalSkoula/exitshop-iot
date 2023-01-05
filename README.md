@@ -14,6 +14,9 @@ ExitShop Internet of Things - krabička, která vás upozorní na novou objedná
 
 ## Prototypy
 
+Prototyp #4 "Petr" - byly použity příliš krátké kabely
+
+![obrazek](https://user-images.githubusercontent.com/5922575/210863187-c16f14dc-372c-415e-8d52-b687af19a157.png)
 
 Prototyp #3 "Milan" se zesilovačem, zde použito NodeMCU v2, které je menší
 
