@@ -47,4 +47,4 @@ Ve složce hardware naleznete krabičku pro 3D tisk a schéma zapojení.
 * [ExitShop](https://www.exitshop.cz)
 
 <a href="https://www.buymeacoffee.com/mskoula"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" height="40"></a>
-<a href="https://paypal.me/truehipstercz?country.x=CZ&locale.x=en_US"><img src="https://github.com/andreostrovsky/donate-with-paypal/blob/master/blue.svg" height="40"></a>
+<a href="https://paypal.me/truehipstercz?country.x=CZ&locale.x=en_US"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="40"></a>
